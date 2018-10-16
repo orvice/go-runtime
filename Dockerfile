@@ -1,4 +1,4 @@
-FROM golang:1.11 as builder
+FROM golang:1.11-alpine as builder
 
 RUN go get github.com/google/gops
 
