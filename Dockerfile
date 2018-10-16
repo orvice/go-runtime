@@ -1,10 +1,7 @@
-FROM alpine
+FROM golang:1.11 as builder
 
-RUN apk update
-RUN apk upgrade
-RUN apk add ca-certificates && update-ca-certificates
-# Change TimeZone
-RUN apk add --update tzdata
-ENV TZ=Asia/Shanghai
-# Clean APK cache
-RUN rm -rf /var/cache/apk/*
+RUN github.com/google/gops
+
+FROM orvice/go-runtime
+
+COPY --from=builder /go/bin/gops /bin/gops
