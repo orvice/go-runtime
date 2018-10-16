@@ -1,6 +1,6 @@
 FROM golang:1.11 as builder
 
-RUN github.com/google/gops
+RUN go get github.com/google/gops
 
 FROM orvice/go-runtime
 
