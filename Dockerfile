@@ -8,3 +8,6 @@ RUN apk add --update tzdata
 ENV TZ=Asia/Shanghai
 # Clean APK cache
 RUN rm -rf /var/cache/apk/*
+
+RUN mkdir -p /app/bin
+WORKDIR /app/bin
