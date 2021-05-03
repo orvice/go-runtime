@@ -10,4 +10,8 @@ RUN rm -rf /var/cache/apk/*
 
 RUN mkdir -p /app/bin
 
+COPY docker-entrypoint.sh /usr/bin/docker-entrypoint.sh
+
 WORKDIR /app/bin
+
+ENTRYPOINT [ "/usr/bin/docker-entrypoint.sh"]
